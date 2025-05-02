@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Scanner Kamera Fullscreen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    #cameraContainer {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    #cameraStream {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #scannerLine {
+      position: absolute;
+      left: 10%;
+      width: 80%;
+      height: 2px;
+      background: #D0DAEF;
+      animation: scanMove 3s linear infinite;
+      z-index: 3;
+    }
+
+    @keyframes scanMove {
+      0% { top: 20%; }
+      50% { top: 60%; }
+      100% { top: 20%; }
+    }
+
+    #overlayBox {
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 40%;
+      border: 2px solid white;
+      border-radius: 10px;
+      z-index: 2;
+    }
+
+    #importBtn, #backBtn {
+      position: absolute;
+      top: 15px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #8FA5D6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      border: none;
+      cursor: pointer;
+    }
+
+    #importBtn {
+      right: 15px;
+    }
+
+    #backBtn {
+      left: 15px;
+    }
+
+    #importBtn img, #backBtn img {
+      width: 24px;
+      height: 24px;
+      filter: invert(1);
+    }
+
+    #scanBtn {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #8FA5D6;
+      color: white;
+      font-weight: bold;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 5;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    #scanBtn img {
+      width: 20px;
+      height: 20px;
+      filter: invert(1);
+    }
+
+    #snapshot, #result { display: none; }
+
+    #resultScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  #resultScreen img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    margin-bottom: 25px;
+    object-fit: cover;
+  }
+
+  #breedName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #000;
+  }
+
+  #accuracyScore {
+    font-size: 18px;
+    color: #9EE37D;
+  }
+
+  #resultScreen button {
+    margin-top: 30px;
+    padding: 12px 28px;
+    background-color: #8FA5D6;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s;
+  }
+
+  #resultScreen button:hover {
+    background-color: #894B8D;
+  }
+
+  #resultScreen button img {
+    width: 18px;
+    height: 18px;
+    filter: invert(1);
+  }
+  #overlayBox {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    width: 80%;
+    height: 40%;
+    z-index: 2;
+    border-radius: 10px;
+    /* border: 2px solid white; --> HAPUS ini */
+  }
+
+
+
+  </style>
+</head>
+<body>
+
+  <div id="cameraContainer">
+    <video id="cameraStream" autoplay playsinline></video>
+    <div id="overlayBox"></div>
+    <div id="scannerLine"></div>
+
+    <a href="index.html">
+      <button id="backBtn">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/left.png" alt="Back" />
+      </button>
+    </a>
+
+    <button id="importBtn" onclick="document.getElementById('uploadInput').click()">
+      <img src="https://img.icons8.com/material-rounded/24/ffffff/image.png" alt="Import" />
+    </button>
+    <input type="file" id="uploadInput" accept="image/*" onchange="handleFile(event)" style="display:none;">
+
+    <button id="scanBtn" onclick="takePhoto()">
+      <img src="https://img.icons8.com/ios-filled/24/ffffff/camera.png" alt="Scan" />
+      <span>Scan Gambar</span>
+    </button>
+  </div>
+
+  <canvas id="snapshot"></canvas>
+  <div id="result"></div>
+
+  <div id="resultScreen">
+    <img id="previewImage" src="" alt="Hasil Gambar" />
+    <div id="breedName">Nama Ras</div>
+    <div style="color: #000;">Akurasinya: <span id="accuracyScore">0%</span></div>
+    <button onclick="resetScan()">
+      Scan Lagi
+    </button>
+  </div>
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script>
+    let video = document.getElementById('cameraStream');
+    let canvas = document.getElementById('snapshot');
+    let context = canvas.getContext('2d');
+    let model;
+
+    const classLabels = [
+      'Abyssinian', 'Bengal', 'Birman', 'Bombay', 'British Shorthair',
+      'Egyptian Mau', 'Maine Coon', 'Persian', 'Ragdoll',
+      'Russian Blue', 'Siamese', 'Sphynx'
+    ];
+
+    async function loadModel() {
+      model = await tf.loadLayersModel('model/model.json');
+      console.log('Model berhasil dimuat!');
+    }
+
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+        video.srcObject = stream;
+      } catch (error) {
+        console.error('Tidak bisa mengakses kamera:', error);
+      }
+    }
+
+    async function takePhoto() {
+      if (!model) {
+        alert('Model belum dimuat!');
+        return;
+      }
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+      const imageData = tf.browser.fromPixels(canvas);
+      const resized = tf.image.resizeBilinear(imageData, [224, 224]);
+      const batched = resized.expandDims(0).div(255);
+
+      const prediction = await model.predict(batched).data();
+      displayResult(prediction);
+
+      imageData.dispose();
+      resized.dispose();
+      batched.dispose();
+    }
+
+    function handleFile(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = async function() {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          context.drawImage(img, 0, 0);
+          if (!model) {
+            alert('Model belum dimuat!');
+            return;
+          }
+          const imageData = tf.browser.fromPixels(canvas);
+          const resized = tf.image.resizeBilinear(imageData, [224, 224]);
+          const batched = resized.expandDims(0).div(255);
+
+          const prediction = await model.predict(batched).data();
+          displayResult(prediction);
+
+          imageData.dispose();
+          resized.dispose();
+          batched.dispose();
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function displayResult(prediction) {
+      const maxProb = Math.max(...prediction);
+      const maxIndex = prediction.indexOf(maxProb);
+      const predictedClass = classLabels[maxIndex];
+
+      document.getElementById('breedName').innerText = predictedClass;
+      document.getElementById('accuracyScore').innerText = (maxProb * 100).toFixed(2) + '%';
+      document.getElementById('previewImage').src = canvas.toDataURL();
+
+      document.getElementById('cameraContainer').style.display = 'none';
+      document.getElementById('result').style.display = 'none';
+      document.getElementById('resultScreen').style.display = 'block';
+    }
+
+    function resetScan() {
+      document.getElementById('resultScreen').style.display = 'none';
+      document.getElementById('cameraContainer').style.display = 'block';
+      document.getElementById('result').style.display = 'block';
+    }
+
+    window.onload = function () {
+      loadModel();
+      startCamera();
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Petpal - Pet Care and Pet Shop HTML Template</title>
+    <meta name="description" content="Petpal - Pet Care and Pet Shop HTML Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/flaticon_pet_care.css">
+    <link rel="stylesheet" href="assets/css/odometer.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <!-- Font Awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<style>
+    html {
+    scroll-behavior: smooth;
+    }
+
+    .banner__area{
+        background-image: linear-gradient(140deg, #f1def8 10%, #fef9ff 45%, #f4e5fb 75%, #e9d1f0 100%);
+    }
+
+    #gambar-orang{
+        max-width: 460px;
+        width: 100%;
+        position: relative;
+        top: -50px;
+        object-fit: cover;
+    }
+
+    .services__item{
+        height: 349px;
+    }
+
+    .registration__area h2 {
+      color: #fff;
+      font-size: 30px;
+    }
+
+    .registration__area h4 {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .drag-area {
+      border: 2px dashed #fff;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .drag-area.active {
+      border: 2px solid #fff;
+    }
+    .drag-area .icon {
+      font-size: 100px;
+      color: #fff;
+    }
+    .drag-area header {
+      font-size: 25px;
+      font-weight: 500;
+      color: #fff;
+    }
+    .drag-area span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+      margin: 10px 0 15px 0;
+    }
+    .drag-area button {
+      padding: 10px 25px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      outline: none;
+      background: #fff;
+      color: #5256ad;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .drag-area img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .image-container {
+        display: none; /* Sembunyikan container awal */
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .image-container button.remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 5px 8px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.8em;
+    }
+
+    .related-product-area{
+        margin-top: 120px;
+    }
+
+    .animal__thumb{
+        width: 100%;
+    }
+
+    .animal__content .title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .footer__area{
+        color: #fff;
+    }
+
+    .footer__area li{
+        display: flex;
+        gap: 10px;
+    }
+
+    .footer__area a,li,h5,span{
+        color: #fff;
+    }
+
+    .testimonial__area {
+    background: var(--tg-color-gray-4);
+    position: relative;
+    z-index: 1;
+    padding: 130px 0 315px;
+}
+</style>
+
+<body>
+
+    <!--Preloader-->
+    <div id="preloader">
+        <div id="loader" class="loader">
+            <div class="loader-container">
+                <div class="loader-icon"><img src="assets/img/logo/preloader.svg" alt="Preloader"></div>
+            </div>
+        </div>
+    </div>
+    <!--Preloader-end -->
+
+    <!-- Scroll-top -->
+    <button class="scroll__top scroll-to-target" data-target="html">
+        <i class="fas fa-angle-up"></i>
+    </button>
+    <!-- Scroll-top-end-->
+
+    <!-- header-area -->
+    <header>
+        <div id="header-fixed-height"></div>
+        <div id="sticky-header" class="tg-header__area">
+            <div class="container custom-container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tgmenu__wrap">
+                            <nav class="tgmenu__nav">
+                                <div class="logo">
+                                    <a href="index.html"><img src="assets/img/logo2.png" alt="Logo"></a>
+                                </div>
+                                <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
+                                    <ul class="navigation">
+                                        <li class="active"><a href="index.html">Beranda</a></li>
+                                        <li><a href="#tentang">Tentang</a></li>
+                                        <li><a href="#ras">Ras Kucing</a></li>
+                                    </ul>
+                                </div>
+                                <div class="tgmenu__action d-none d-md-block">
+                                    <ul class="list-wrap">
+                                        <li class="offCanvas-menu">
+                                            <a href="javascript:void(0)" class="menu-tigger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="16" viewBox="0 0 26 16" fill="none">
+                                                    <rect width="9" height="2" rx="1" fill="currentcolor"/>
+                                                    <rect x="11" width="15" height="2" rx="1" fill="currentcolor" />
+                                                    <rect y="14" width="26" height="2" rx="1" fill="currentcolor" />
+                                                    <rect y="7" width="16" height="2" rx="1" fill="currentcolor" />
+                                                    <rect x="17" y="7" width="9" height="2" rx="1" fill="currentcolor" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li class="header-btn"><a href="#pindai" class="btn"><i class="flaticon-loupe"></i>Pindai</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mobile-nav-toggler">
+                                    <i class="flaticon-layout"></i>
+                                </div>
+                            </nav>
+                        </div>
+
+                        <!-- Mobile Menu  -->
+                        <div class="tgmobile__menu">
+                            <nav class="tgmobile__menu-box">
+                                <div class="close-btn"><i class="fas fa-times"></i></div>
+                                <div class="nav-logo">
+                                    <a href="index.html"><img src="assets/img/logo2.png" alt="Logo"></a>
+                                </div>
+                                <div class="tgmobile__search">
+                                    <form action="#">
+                                        <input type="text" placeholder="Search here...">
+                                        <button><i class="fas fa-search"></i></button>
+                                    </form>
+                                </div>
+                                <div class="tgmobile__menu-outer">
+                                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                                </div>                            
+                            </nav>
+                        </div>
+                        <div class="tgmobile__menu-backdrop"></div>
+                        <!-- End Mobile Menu -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- header-search -->
+        <div class="search__popup">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="search__wrapper">
+                            <div class="search__close">
+                                <button type="button" class="search-close-btn">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="search__form">
+                                <form action="#">
+                                    <div class="search__input">
+                                        <input class="search-input-field" type="text" placeholder="Type keywords here">
+                                        <span class="search-focus-border"></span>
+                                        <button>
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-popup-overlay"></div>
+        <!-- header-search-end -->
+
+        <!-- offCanvas-menu -->
+        <div class="offCanvas__info">
+            <div class="offCanvas__close-icon menu-close">
+                <button><i class="far fa-window-close"></i></button>
+            </div>
+            <div class="offCanvas__logo mb-30">
+                <a href="index.html"><img src="assets/img/logo2.png" alt="Logo"></a>
+            </div>
+            <div class="offCanvas__side-info mb-30">
+                <div class="contact-list mb-30">
+                    <h4>Office Address</h4>
+                    <p>123/A, Miranda City Likaoli <br> Prikano, Dope</p>
+                </div>
+                <div class="contact-list mb-30">
+                    <h4>Phone Number</h4>
+                    <p>+0989 7876 9865 9</p>
+                    <p>+(090) 8765 86543 85</p>
+                </div>
+                <div class="contact-list mb-30">
+                    <h4>Email Address</h4>
+                    <p>info@example.com</p>
+                    <p>example.mail@hum.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="offCanvas__overly"></div>
+        <!-- offCanvas-menu-end -->
+
+    </header>
+    <!-- header-area-end -->
+
+    <!-- main-area -->
+    <main class="fix">
+        <!-- Mobile Menu  -->
+        <div class="tgmobile__menu">
+            <nav class="tgmobile__menu-box">
+                <div class="close-btn"><i class="fas fa-times"></i></div>
+                <div class="nav-logo">
+                    <a href="index.html"><img src="assets/img/logo2.png" alt="Logo"></a>
+                </div>
+                <div class="tgmobile__search">
+                    <form action="#">
+                        <input type="text" placeholder="Search here...">
+                        <button><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="tgmobile__menu-outer">
+                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+                </div>
+                <div class="social-links">
+                    <ul class="list-wrap">
+                        <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.whatsapp.com/" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="tgmobile__menu-backdrop"></div>
+        <!-- End Mobile Menu -->
+    </div>
+</div>
+</div>
+</div>
+
+<!-- header-search -->
+<div class="search__popup">
+<div class="container">
+<div class="row">
+    <div class="col-12">
+        <div class="search__wrapper">
+            <div class="search__close">
+                <button type="button" class="search-close-btn">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 1L1 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M1 1L17 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="search__form">
+                <form action="#">
+                    <div class="search__input">
+                        <input class="search-input-field" type="text" placeholder="Type keywords here">
+                        <span class="search-focus-border"></span>
+                        <button>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.55 18.1C14.272 18.1 18.1 14.272 18.1 9.55C18.1 4.82797 14.272 1 9.55 1C4.82797 1 1 4.82797 1 9.55C1 14.272 4.82797 18.1 9.55 18.1Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M19.0002 19.0002L17.2002 17.2002" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div class="search-popup-overlay"></div>
+<!-- header-search-end -->
+
+</header>
+<!-- header-area-end -->
+
+<!-- main-area -->
+<main>
+
+<!-- breadcrumb-area -->
+<section class="breadcrumb__area fix">
+<div class="container">
+<div class="row align-items-end">
+    <div class="col-lg-8">
+        <div class="breadcrumb__content">
+            <h3 class="title">Cat Details</h3>
+            <nav class="breadcrumb">
+                <span property="itemListElement" typeof="ListItem">
+                    <a href="index.html">Home</a>
+                </span>
+                <span class="breadcrumb-separator"><i class="flaticon-right-arrow-angle"></i></span>
+                <span property="itemListElement" typeof="ListItem">Cat Details</span>
+            </nav>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="breadcrumb__img">
+            <img src="assets/img/images/breadcrumb_img.png" alt="img" data-aos="fade-left" data-aos-delay="800">
+        </div>
+    </div>
+</div>
+</div>
+<div class="breadcrumb__shape-wrap">
+<img src="assets/img/images/breadcrumb_shape01.png" alt="img" data-aos="fade-down-right" data-aos-delay="400">
+<img src="assets/img/images/breadcrumb_shape02.png" alt="img" data-aos="fade-up-left" data-aos-delay="400">
+</div>
+</section>
+<!-- breadcrumb-area-end -->
+
+ <!-- animal-details-area -->
+ <section class="animal__details-area">
+    <div class="container">
+        <div class="animal__details-wrap">
+            <div class="row">
+                <div class="col-61">
+                    <div class="animal__details-img-wrap">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="itemOne-tab-pane" role="tabpanel" aria-labelledby="itemOne-tab" tabindex="0">
+                                <div class="swiper pet-active">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/ras/Bombay/Bombay_115.jpg" alt="img">
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="animal__details-description">
+                        <h4 class="title">Description</h4>
+                        <p>Bombay merupakan kucing berbulu hitam pekat yang menyerupai mini panther.</p>
+                    </div>
+                    <div class="animal__details-info-wrap">
+                        <h4 class="title">Tips and Care </h4>
+                        <div class="introducing__list-box">
+                            <ul class="list-wrap">
+                                <li>
+                                    <span class="icon">
+                                        <img src="assets/img/icon/check_icon02.svg" alt="" class="injectable">
+                                    </span>
+                                    Perawatan bulu minimal, perhatikan kesehatan gigi.
+                                </li>
+                                <li>
+                                    <span class="icon">
+                                        <img src="assets/img/icon/check_icon02.svg" alt="" class="injectable">
+                                    </span>
+                                    Makanan protein tinggi, vitamin tambahan untuk kulit.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-39">
+                    <aside class="animal__details-sidebar">
+                        <div class="animal__details-widget">
+                            <div class="animal__details-sidebar-info">
+                                <h4 class="title">Bombay</h4>
+                                <ul class="list-wrap">
+                                    <li><span>Discovered:</span>1950-an</li>
+                                    <li><span>Color:</span>Hitam</li>
+                                    <li><span>Weight:</span>3–5,5 kg</li>
+                                    <li><span>Breeds Origin:</span>Amerika Serikat</li>
+                                    <li><span>Characteristic:</span>Sosial, penyayang, percaya diri</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                    </aside>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- animal-details-area-end -->
+
+</main>
+<!-- main-area-end -->
+    </main>
+    <!-- main-area-end -->
+
+
+    <!-- footer-area -->
+    <footer>
+        <div class="footer__area">
+            <div class="footer__top fix">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-2 col-md-5 col-sm-6 col-12 mb-5 mb-lg-0">
+                            <a href="index.html">
+                                <figure class="footer-logo mb-0">
+                                    <a href="index.html"><img src="assets/img/logo/w_logo.png" alt=""></a>
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="right col-lg-8 d-flex flex-column flex-lg-row">
+                            <div class="col-lg-4 col-12 ps-0 ps-lg-4 mb-4 mb-lg-0">
+                                <div class="links w-100 justify-content-end">
+                                    <h5 class="heading">Navigasi</h5>
+                                    <div class="pages d-flex">
+                                        <ul class="list-unstyled mb-0 me-5 list1">
+                                            <li></i><a href="index.html">Beranda</a></li>
+                                            <li></i><a href="#tentang">Tentang</a></li>
+                                            <li></i><a href="#ras">Ras Kucing</a></li>
+                                        </ul>
+                                        <ul class="list-unstyled mb-0">
+                                            <li></i><a href="#pindai">Pindai</a></li>
+                                            <li></i><a href="#artikel">Artikel</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="info">
+                                    <ul class="list-unstyled mb-4 mb-lg-0">
+                                        <li style="margin-bottom: 20px;">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            <div class="text">
+                                                <h5 class="mb-0">Alamat:</h5>
+                                                <a href="https://g.co/kgs/q4tf1pB"
+                                                    class="text-decoration-none address mb-0">Jl. Kumbang No.14, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i class="fas fa-envelope-open-text"></i>
+                                            <div class="text">
+                                                <h5 class="mb-0">Email:</h5>
+                                                <a href="mailto:dollipopbouquet@gmail.com" class="text-decoration-none">dollipopbouquet@gmail.com</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="icon">
+                                    <div class="phone_wrapper d-flex">
+                                        <i class="fa-solid fa-phone phone m-0 m-lg-3 mt-2"></i>
+                                        <div class="phone_content" style="margin-left: 10px;">
+                                            <a href="wa.me/628989196428" class="text-decoration-none d-block">+62 898-9196-428</a>
+                                            <span>Punya pertanyaan? Hubungi Kami 24/7</span>
+                                        </div>
+                                    </div>
+                                    <ul class="list-unstyled mb-0 social-icons d-flex ms-5">
+                                        <li class="me-3"><a href="https://www.instagram.com/dollipop.bouquet"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
+                                        <li class="me-3"><a href="https://www.tiktok.com/@dollipopbouquet"><i class="fa-brands fa-tiktok"></i></a></li>
+                                        <li class="me-3"><a href="#"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="footer__shape-wrap">
+                    <img src="assets/img/images/footer_shape01.png" alt="img" data-aos="fade-up-right" data-aos-delay="400">
+                    <img src="assets/img/images/footer_shape02.png" alt="img" data-aos="fade-up-left" data-aos-delay="400">
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-12">
+                            <div class="copyright-text text-end">
+                                <p class="text-center">Copyright © 2024. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer-area-end -->
+
+
+    <!-- JS here -->
+    <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.odometer.min.js"></script>
+    <script src="assets/js/jquery.appear.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="assets/js/svg-inject.min.js"></script>
+    <script src="assets/js/select2.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/ajax-form.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        const text = document.querySelector('.circle');
+        text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+
+        const element = document.querySelectorAll('.circle span');
+        for (let i = 0; i < element.length; i++) {
+            element[i].style.transform = "rotate(" + i * 14.5 + "deg)"
+        }
+    </script>
+    <script>
+        SVGInject(document.querySelectorAll("img.injectable"));
+    </script>
+    <script src="assets/js/script.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
