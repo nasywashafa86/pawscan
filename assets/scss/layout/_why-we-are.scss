@@ -36,11 +36,11 @@
                 position: absolute;
                 color: var(--tg-theme-primary);
                 &-one {
-                    left: 24%;
+                    left: 19%;
                     top: -4%;
                     @media #{$lg} {
                         left: 30%;
-                        top: -6%;
+                        top: -10%;
                     }
                     & svg {
                         @media #{$xs} {

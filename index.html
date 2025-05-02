@@ -41,8 +41,6 @@
     #gambar-orang{
         max-width: 460px;
         width: 100%;
-        position: relative;
-        top: -50px;
         object-fit: cover;
     }
 
@@ -151,7 +149,7 @@
         gap: 10px;
     }
 
-    .footer__area a,li,h5,span{
+    .footer__area a,li,h5{
         color: #fff;
     }
 
@@ -164,6 +162,14 @@
     .logo img {
         width: 80px; /* ganti sesuai kebutuhan, contoh 120px */
         height: 100px; /* supaya proporsional */
+    }
+
+    .swiper-slide {
+        height: 442px !important;
+    }
+
+    .animal__item {
+        height: 100% !important;
     }
     
 </style>
@@ -199,28 +205,14 @@
                                     <a href="index.html"><img src="assets/img/logo2.png" alt="Logo"></a>
                                 
                                 </div>
-                                <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex">
+                                <div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-lg-flex align-items-center">
                                     <ul class="navigation">
                                       <li><a href="index.html" class="nav-link" data-target="Beranda">Beranda</a></li>
                                       <li><a href="#tentang" class="nav-link" data-target="tentang">Tentang</a></li>
                                       <li><a href="#ras" class="nav-link" data-target="ras">Ras Kucing</a></li>
                                     </ul>
-                                  </div>
-                                <div class="tgmenu__action d-none d-md-block">
-                                    <ul class="list-wrap">
-                                        <li class="offCanvas-menu">
-                                            <a href="javascript:void(0)" class="menu-tigger">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="16" viewBox="0 0 26 16" fill="none">
-                                                    <rect width="9" height="2" rx="1" fill="currentcolor"/>
-                                                    <rect x="11" width="15" height="2" rx="1" fill="currentcolor" />
-                                                    <rect y="14" width="26" height="2" rx="1" fill="currentcolor" />
-                                                    <rect y="7" width="16" height="2" rx="1" fill="currentcolor" />
-                                                    <rect x="17" y="7" width="9" height="2" rx="1" fill="currentcolor" />
-                                                </svg>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <a href="opencamera.html" class="btn" style="max-height: 50px;"><i class="flaticon-loupe"></i>Pindai</a>
+                                  </div>                            
                                 <div class="mobile-nav-toggler">
                                     <i class="flaticon-layout"></i>
                                 </div>
@@ -382,7 +374,7 @@
                                             <i class="fas fa-star"></i>
                                             <i class="fas fa-star"></i>
                                         </div>
-                                        <span>5.0 (1,567 Reviews)</span>
+                                        <span style="color: black !important;">5.0 (1,567 Reviews)</span>
                                     </div>
                                 </div>
                             </div>
@@ -461,8 +453,8 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 col-md-8 col-sm-10">
                         <div class="why__we-are-img">
-                            <img src="assets/img/images/why_we_are_img.png" alt="">
-                            <div class="shape shape-one" data-aos="fade-down-right" data-aos-delay="500">
+                            <img src="assets/img/images/bluecat.png" alt="">
+                            <div class="shape shape-one" data-aos="fade-down-right" data-aos-delay="500" style="top: -15%; left: 20%;">
                                 <img src="assets/img/images/why_shape01.svg" alt="" class="injectable">
                             </div>
                             <div class="shape shape-two" data-aos="fade-up-right" data-aos-delay="500">
@@ -562,7 +554,7 @@
                                 <div class="swiper-slide">
                                     <div class="animal__item animal__item-two shine-animate-item">
                                         <div class="animal__thumb animal__thumb-two shine-animate">
-                                            <a href="abyssinian.html"><img src="assets/img/ras2/Abyssinian/111.jpg"></a>
+                                            <a href="abyssinian.html"><img src="assets/img/images/Abyssinian.jpg"></a>
                                             <a href="abyssinian.html" class="wishlist"><i class="flaticon-love"></i></a>
                                         </div>
                                         <div class="animal__content animal__content-two">
@@ -604,7 +596,7 @@
                                 <div class="swiper-slide">
                                     <div class="animal__item animal__item-two shine-animate-item">
                                         <div class="animal__thumb animal__thumb-two shine-animate">
-                                            <a href="birman.html"><img src="assets/img/ras2/Birman/148.jpg" alt="img"></a>
+                                            <a href="birman.html"><img src="assets/img/images/Birman.jpeg" alt="img"></a>
                                             <a href="birman.html" class="wishlist"><i class="flaticon-love"></i></a>
                                         </div>
                                         <div class="animal__content animal__content-two">
@@ -880,7 +872,7 @@
                                             <i class="fas fa-envelope-open-text"></i>
                                             <div class="text">
                                                 <h5 class="mb-0">Email:</h5>
-                                                <a href="mailto:dollipopbouquet@gmail.com" class="text-decoration-none">dollipopbouquet@gmail.com</a>
+                                                <a href="mailto:pawscan@gmail.com" class="text-decoration-none">pawscan@gmail.com</a>
                                             </div>
                                         </li>
                                     </ul>
@@ -891,15 +883,11 @@
                                     <div class="phone_wrapper d-flex">
                                         <i class="fa-solid fa-phone phone m-0 m-lg-3 mt-2"></i>
                                         <div class="phone_content" style="margin-left: 10px;">
-                                            <a href="wa.me/628989196428" class="text-decoration-none d-block">+62 898-9196-428</a>
+                                            <a href="wa.me/6287872225515" class="text-decoration-none d-block">+62 878-7222-5515</a>
                                             <span>Punya pertanyaan? Hubungi Kami 24/7</span>
                                         </div>
                                     </div>
-                                    <ul class="list-unstyled mb-0 social-icons d-flex ms-5">
-                                        <li class="me-3"><a href="https://www.instagram.com/dollipop.bouquet"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a></li>
-                                        <li class="me-3"><a href="https://www.tiktok.com/@dollipopbouquet"><i class="fa-brands fa-tiktok"></i></a></li>
-                                        <li class="me-3"><a href="#"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a></li>
-                                    </ul>
+
                                 </div>
                             </div>
                         </div>                        
