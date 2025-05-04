@@ -170,6 +170,30 @@
     .animal__item {
         height: 100% !important;
     }
+
+    /* SVG dividers*/
+
+    svg.divider{
+        margin-bottom: -10px;
+        margin-top: -30%;
+    }
+    svg.divider.header-top{
+        fill: #ffffff;
+        position: absolute;
+        margin-bottom: 0;
+        margin-top: -10%;
+    }
+    .divider-zindex-top img{
+        margin-top: -10%;
+        position: absolute;
+        width: 100%;
+        aspect-ratio: 2;
+    }
+
+    .divider-zindex-top img{
+        z-index:98!important;
+    }
+
     
 </style>
 
@@ -291,7 +315,7 @@
                         <div class="banner__content">
                             <h2 class="title" data-aos="fade-up" data-aos-delay="200">PawScan! <img src="assets/img/logo2.png" alt=""style="width: 100px; height: 80px;"> Kenali Spesies Kucing <span class="icon"><img src="assets/img/banner/banner_title_img02.png" alt=""></span> Lewat Satu Foto</h2>
                             <p data-aos="fade-up" data-aos-delay="400">Cukup unggah atau ambil gambar kucing, dan sistem kami akan mengenali spesiesnya secara otomatis hanya dalam hitungan detik.</p>
-                            <a href="opencamera.html" class="btn" data-aos="fade-up" data-aos-delay="600">Pindai Sekarang <img src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
+                            <a href="opencamera.html" class="btn" data-aos="fade-up" data-aos-delay="600" style="position: relative; z-index: 99!important;">Pindai Sekarang <img src="assets/img/icon/right_arrow.svg" alt="" class="injectable"></a>
                         </div>
                     </div>
                     <div class="col-xl-7 col-lg-6 col-md-9">
@@ -301,6 +325,11 @@
                     </div>
                 </div>
             </div>
+            <!-- SVG divider -->
+            <div class="divider-zindex-top" id="divider" style="z-index: 98 !important;">
+                <img src="assets/img/svg/top-divider.svg"  alt="" class="w-100" style="object-fit: cover;"/>
+            </div>
+            <!-- /SVG divider-->
             <div class="banner__shape-wrap">
                 <img src="assets/img/banner/banner_shape02.png" alt="img" data-aos="fade-up-right" data-aos-delay="1200">
                 <img src="assets/img/banner/banner_shape03.png" alt="img" class="ribbonRotate">
